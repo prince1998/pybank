@@ -1,8 +1,8 @@
 import pyrebase
 
 config={
-    #Enter your config details
-  }
+    #Enter config details here
+}
 
 firebase=pyrebase.initialize_app(config)
 auth=firebase.auth()
