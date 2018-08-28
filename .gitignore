@@ -102,3 +102,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+pyrebase_test.py
