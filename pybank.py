@@ -22,9 +22,9 @@ except ImportError:
         subprocess.Popen(shlex.split("pip install Pyrebase")) #installs Pyrebase
         
     print("Please restart the program")
-    dependencies=False
+    dependencies_exist=False
     
-if dependencies:
+if dependencies_exist:
     
     class ScreenManagement(ScreenManager):
         pass
@@ -57,7 +57,7 @@ if dependencies:
         def getLoginInfo(self):
             return SetGetLoginInfo.email_id
     
-    presentation = Builder.load_file('layouts.kv')
+    presentation = Builder.load_file('layout.kv')
     
     class PyBank(App):
         def build(self):
