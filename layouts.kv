@@ -1,0 +1,87 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+ScreenManagement:
+	transition:FadeTransition()
+	RegisterScreen:
+	LoginScreen:
+	UserScreen:
+	
+<RegisterScreen>:
+	name:"register"
+	
+	GridLayout:
+		rows:5
+		size_hint:1,1
+		padding:100
+		spacing:0,10
+		
+		TextInput:
+			id:email
+			padding_x:200
+			padding_y:25
+			hint_text:'Enter Name'
+		
+		TextInput:
+			id:email
+			padding_x:200
+			padding_y:25
+			hint_text:'Enter Email'
+			
+			
+		TextInput:
+			id:password
+			padding_x:200
+			padding_y:25
+			password:'true'
+			hint_text:'Enter Password'
+			
+		Button:
+			text:'Register'
+			
+		Button:
+			text:'Proceed to Sign In'
+			on_release:root.manager.current='login'
+			
+			
+<LoginScreen>:
+	name:"login"
+
+	GridLayout:
+		rows:4
+		size_hint:1,1
+		padding:100
+		spacing:0,10
+		
+		TextInput:
+			id:email
+			padding_x:200
+			padding_y:35
+			hint_text:'Enter Email'
+			
+			
+		TextInput:
+			id:password
+			padding_x:200
+			padding_y:35
+			password:'true'
+			hint_text:'Enter Password'
+			
+		Button:
+			text:'Login'
+			on_release:root.validate()
+			
+		Button:
+			text:'Do not have an Account ?'
+			on_release:root.manager.current='register'
+		
+<UserScreen>:
+	name:"user"
+	on_enter:root.getname()
+	
+	Label:
+		id:label
+		text:'Hello'
+		halign:'center'
+		valign:'center'
+
+	
