@@ -27,7 +27,6 @@ ScreenManagement:
 			padding_y:25
 			hint_text:'Enter Email'
 			
-			
 		TextInput:
 			id:password
 			padding_x:200
@@ -40,7 +39,7 @@ ScreenManagement:
 			
 		Button:
 			text:'Create Account'
-			on_release:root.manager.current='login'
+			on_press:root.manager.current='login'
 			
 			
 <LoginScreen>:
@@ -58,7 +57,6 @@ ScreenManagement:
 			padding_y:35
 			hint_text:'Enter Email'
 			
-			
 		TextInput:
 			id:password
 			padding_x:200
@@ -68,11 +66,11 @@ ScreenManagement:
 			
 		Button:
 			text:'Login'
-			on_release:root.validate()
+			on_press:root.validate()
 			
 		Button:
 			text:'New User?'
-			on_release:root.manager.current='register'
+			on_press:root.manager.current='register'
 		
 <UserScreen>:
 	name:"user"

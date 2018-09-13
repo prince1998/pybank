@@ -1,12 +1,12 @@
 import pyrebase
 
 config={
-    
+    #insert Firebase auth config here
 }
 
 firebase=pyrebase.initialize_app(config)
 auth=firebase.auth()
-user=auth.sign_in_with_email_and_password('testuser@gmail.com','password')
+user=auth.sign_in_with_email_and_password('newuser@gmail.com','password')
 db=firebase.database()
 
 data={"name":"Test User"}

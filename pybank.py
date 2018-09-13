@@ -1,6 +1,6 @@
 import sys
 import shlex,subprocess
-import time
+import config #config.py file for Firebase
 
 try:
     import kivy
@@ -8,6 +8,7 @@ try:
     from kivy.lang import Builder
     from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
     from kivy.properties import ObjectProperty,StringProperty
+    
     import pyrebase
     
     dependencies_exist=True #if all packages are installed
@@ -24,7 +25,7 @@ except ImportError:
     print("Please restart the program")
     dependencies_exist=False
     
-if dependencies_exist:
+if dependencies_exist: #only if everything is installed
     
     class ScreenManagement(ScreenManager):
         pass
@@ -50,7 +51,7 @@ if dependencies_exist:
 
         def __init__(self):
             pass
-
+            
         def setLoginInfo(self,email):
             SetGetLoginInfo.email_id = email
 
