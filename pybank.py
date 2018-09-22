@@ -3,13 +3,13 @@ import shlex,subprocess
 import config #config.py file for Firebase
 
 try:
+    import pyrebase
+    
     import kivy
     from kivy.app import App
     from kivy.lang import Builder
     from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
     from kivy.properties import ObjectProperty,StringProperty
-    
-    import pyrebase
     
     dependencies_exist=True #if all packages are installed
     
@@ -26,4 +26,7 @@ except ImportError:
     dependencies_exist=False
     
 if dependencies_exist: #only if everything is installed
-    print("This shit gonna work")
+    email=int(input("Enter email to register: "))
+    password=int(input("Enter password to register: "))
+    config.create_user(email,password)
+    log_in(email,password)
