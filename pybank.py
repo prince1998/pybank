@@ -20,7 +20,7 @@ except ImportError:
         subprocess.Popen(shlex.split("pip3 install Kivy")) #installs Kivy
         
     if input("Would you like to install Pyrebase? Y/N:\n")=="y":
-        subprocess.Popen(shlex.split("pip install Pyrebase")) #installs Pyrebase
+        subprocess.Popen(shlex.split("pip3 install Pyrebase")) #installs Pyrebase
         
     print("Please restart the program")
     dependencies_exist=False
@@ -29,7 +29,7 @@ if dependencies_exist: #only if everything is installed
     
     class ScreenManagement(ScreenManager):
         pass
-              
+    
     class RegisterScreen(Screen):
         pass
 
