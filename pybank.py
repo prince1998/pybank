@@ -26,7 +26,7 @@ except ImportError:
     dependencies_exist=False
     
 if dependencies_exist: #only if everything is installed
-    email=int(input("Enter email to register: "))
-    password=int(input("Enter password to register: "))
+    email=input("Enter email to register: ")
+    password=input("Enter password to register: ")
     config.create_user(email,password)
     log_in(email,password)
