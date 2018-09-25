@@ -29,4 +29,4 @@ if dependencies_exist: #only if everything is installed
     email=input("Enter email to register: ")
     password=input("Enter password to register: ")
     config.create_user(email,password)
-    log_in(email,password)
+    config.log_in(email,password)
