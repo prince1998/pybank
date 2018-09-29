@@ -1,10 +1,13 @@
 #: import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import Factory kivy.factory.Factory
 
 ScreenManagement:
 	transition:FadeTransition()
+	
 	RegisterScreen:
 	LoginScreen:
 	UserScreen:
+	MoneyScreen:
 	
 <RegisterScreen>:
 	name:"register"
@@ -16,7 +19,7 @@ ScreenManagement:
 		spacing:0,10
 		
 		TextInput:
-			id:email
+			id:name
 			padding_x:200
 			padding_y:25
 			hint_text:'Enter Name'
@@ -35,10 +38,11 @@ ScreenManagement:
 			hint_text:'Enter Password'
 			
 		Button:
-			text:'Register'
+			text:'Create Account'
+			on_press:root.create_user()
 			
 		Button:
-			text:'Create Account'
+			text:'Sign In'
 			on_press:root.manager.current='login'
 			
 			
@@ -74,10 +78,106 @@ ScreenManagement:
 		
 <UserScreen>:
 	name:"user"
-	on_enter:root.getname()
+	on_enter:root.display()
 	
-	Label:
-		id:label
-		text:'Hello'
-		halign:'center'
-		valign:'center'
+	GridLayout:
+		rows:6
+
+		Label:
+			id:name
+			text:'Fetching'
+			
+		Label:
+			id:balance
+			text:'Fetching'
+			
+		Button:
+			text:'Add or Transfer Money'
+			on_press:root.manager.current='money'
+	
+		Label:
+			id:transactions
+			text:'Fetching'
+			
+		Button:
+			text:'Log Out'
+			on_press:root.manager.current='login'
+		
+<MoneyScreen>:
+	
+	name:"money"
+	
+	GridLayout:
+		
+		rows:3
+		
+		Button:
+			text:'Add Money'
+			on_press:Factory.AddMoney().open()
+			
+		Button:
+			text:'Transfer Money'
+			on_press:Factory.TransferMoney().open()
+			
+		Button:
+			text:'Back'
+			on_press:root.manager.current='user'
+		
+	
+
+<AddMoney@Popup>
+
+	title:'Add Money'
+	size_hint:.5,.5
+	
+	GridLayout:
+	
+		rows:2
+		
+		TextInput:
+			hint_text:'Enter Amount'
+			id:money_add
+			
+		Button:
+			text: 'Add Money'
+			on_press:root.add_money()
+
+<TransferMoney@Popup>
+		
+	title:'Transfer Money'
+	size_hint:.5,.5
+	
+	GridLayout:
+	
+		rows:3
+		
+		TextInput:
+			hint_text:'Enter Email of Receiver'
+			id:transfer_email
+		
+		TextInput:
+			hint_text:'Enter Amount'
+			id:money_transfer
+			
+		Button:
+			text: 'Transfer Money'
+			on_press:root.transfer_money()
+
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
