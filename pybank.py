@@ -37,7 +37,7 @@ if dependencies_exist: #only if everything is installed
             self.name = self.ids.name.text
             self.email = self.ids.email.text
             self.password = self.ids.password.text
-            cnfig = config.Config()
+            cnfig = db_communicator.Config()
             cnfig.create_user(self.name,self.email,self.password)
         
 
@@ -45,7 +45,7 @@ if dependencies_exist: #only if everything is installed
         def validate(self):
             self.email = self.ids.email.text
             self.password = self.ids.password.text
-            cnfig = config.Config()
+            cnfig = db_communicator.Config()
             cnfig.sign_in_user(self.email,self.password)
             obj = SetGetLoginInfo()
             obj.setLoginInfo(self.email)
@@ -56,7 +56,7 @@ if dependencies_exist: #only if everything is installed
         def display(self):
             obj = SetGetLoginInfo()
             email = obj.getLoginInfo()
-            cnfig = config.Config()
+            cnfig = db_communicator.Config()
             name,balance,message = cnfig.get_user(email)
             self.balance = str(balance)
             self.ids.name.text = "Welcome "+name
@@ -74,7 +74,7 @@ if dependencies_exist: #only if everything is installed
             obj = SetGetLoginInfo()
             email = obj.getLoginInfo()
             amount = int(self.ids.money_add.text)
-            cnfig = config.Config()
+            cnfig = db_communicator.Config()
             cnfig.add_money(amount,email)
 
     
@@ -86,7 +86,7 @@ if dependencies_exist: #only if everything is installed
             user_email = obj.getLoginInfo()
             transfer_email = self.ids.transfer_email.text
             amount = int(self.ids.money_transfer.text)
-            cnfig = config.Config()
+            cnfig = db_communicator.Config()
             cnfig.transfer_money(amount,user_email,transfer_email)
 
     

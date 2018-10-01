@@ -1,5 +1,5 @@
 import pyrebase
-import fb_config
+import fb_config #file which contains Firebase config
 
 firebase=pyrebase.initialize_app(fb_config.config)
 auth=firebase.auth()
