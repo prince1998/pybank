@@ -1,6 +1,6 @@
 import sys
 import shlex,subprocess
-import config #config.py file for Firebase
+import db_communicator #db_communicator.py file for Firebase methods
 
 try:
     import kivy

@@ -104,4 +104,4 @@ venv.bak/
 .mypy_cache/
 
 .DS_Store
-config.py
+fb_config.py
